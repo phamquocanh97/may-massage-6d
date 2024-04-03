@@ -2316,7 +2316,7 @@
         #IMAGE555>.ladi-image>.ladi-image-background {
             width: 164.662px;
             height: 119.163px;
-            background-image: url("https://w.ladicdn.com/s500x450/5c7362c6c417ab07e5196b05/sdfsd-20200925020804.png");
+            background-image: url("../img/Remove-bg.ai_1710258593877.png");
         }
         
         #LINE395 {
@@ -10598,7 +10598,7 @@
                         </div>
                     </div>
                     <div id="FORM375" class="ladi-element">
-                        <form action="https://sheetdb.io/api/v1/fq7414b48ga54" method="post" id="sheetdb-form" autocomplete="off" method="post" class="ladi-form">
+                        <form action="https://sheetdb.io/api/v1/fq7414b48ga54" method="post" id="sheetdb-form1" autocomplete="off" method="post" class="ladi-form">
                             <div id="BUTTON377" class="ladi-element">
                                 <div class="ladi-button ladi-transition">
                                     <div class="ladi-button-background"></div>
@@ -10610,19 +10610,19 @@
                             <div id="FORM_ITEM378" class="ladi-element">
                                 <div class="ladi-form-item-container">
                                     <div class="ladi-form-item-background"></div>
-                                    <div class="ladi-form-item"><input autocomplete="off" tabindex="5" id="name" name="data[Tên KH]" required="" class="ladi-form-control" type="text" placeholder="Họ và Tên" value=""></div>
+                                    <div class="ladi-form-item"><input autocomplete="off" tabindex="5" id="name1" name="data[Tên KH]" required="" class="ladi-form-control" type="text" placeholder="Họ và Tên" value=""></div>
                                 </div>
                             </div>
                             <div id="FORM_ITEM379" class="ladi-element">
                                 <div class="ladi-form-item-container">
                                     <div class="ladi-form-item-background"></div>
-                                    <div class="ladi-form-item"><input autocomplete="off" tabindex="6" id="sdt" name="data[SDT]" required="" class="ladi-form-control" type="tel" placeholder="Số điện thoại" pattern="(\+84|0)(9|8|7|5|3)[0-9]{8}" value=""></div>
+                                    <div class="ladi-form-item"><input autocomplete="off" tabindex="6" id="sdt1" name="data[SDT]" required="" class="ladi-form-control" type="tel" placeholder="Số điện thoại" pattern="(\+84|0)(9|8|7|5|3)[0-9]{8}" value=""></div>
                                 </div>
                             </div>
                             <div id="FORM_ITEM380" class="ladi-element">
                                 <div class="ladi-form-item-container">
                                     <div class="ladi-form-item-background"></div>
-                                    <div class="ladi-form-item"><textarea autocomplete="off" tabindex="7" id="address" name="data[Địa Chỉ]" required="" class="ladi-form-control" placeholder="Địa Chỉ"></textarea></div>
+                                    <div class="ladi-form-item"><textarea autocomplete="off" tabindex="7" id="address1" name="data[Địa Chỉ]" required="" class="ladi-form-control" placeholder="Địa Chỉ"></textarea></div>
                                 </div>
                             </div>
                             <div id="FORM_ITEM381" class="ladi-element">
@@ -10631,11 +10631,11 @@
                                     <div class="ladi-form-item ladi-form-checkbox ladi-form-checkbox-vertical">
                                         <div class="ladi-form-checkbox-box-item">
                                             <div class="ladi-form-checkbox-item"><input tabindex="8" id="vehicle1" name="data[Ghi chú]" type="checkbox" value="Mua 1 Chiếc: 1.099.000đ + Miễn Ship"><span data-checked="false">Mua 1 Chiếc: 1.099.000đ - Miễn Ship (Bảo Hành 3 năm)- Mát xa thử ưng ý mới nhận - có phiếu bảo hành</span></div>
-                                            <div class="ladi-form-checkbox-item"><input tabindex="8" id="vehicle2" name="data[Ghi chú]" value="Mua 2 Chiếc: 1999.000đ + FreeShip"><span data-checked="false">Mua 2 Chiếc: 1.999.000đ + Miễn Ship</span></div>
+                                            <div class="ladi-form-checkbox-item"><input tabindex="8" id="vehicle2" name="data[Ghi chú]" type="checkbox" value="Mua 2 Chiếc: 1999.000đ + FreeShip"><span data-checked="false">Mua 2 Chiếc: 1.999.000đ + Miễn Ship</span></div>
                                         </div>
                                     </div>
                                 </div>
-                            </div><button id="button1" type="submit" class="ladi-hidden"></button></form>
+                            </div><button id="button2" type="submit" class="ladi-hidden"></button></form>
                     </div>
                 </div>
             </div>
@@ -10756,7 +10756,9 @@
         <div id="lightbox-screen" class="lightbox-screen"></div>
         <script>
             var input = document.getElementById("button1");
+            var input1 = document.getElementById('button2')
             var form = document.getElementById('sheetdb-form');
+            var form1 = document.getElementById('sheetdb-form1');
             form.addEventListener("submit", e => {
                 var name = document.getElementById('name').value;
                 var sdt = document.getElementById("sdt").value;
@@ -10779,6 +10781,30 @@
 
                     document.getElementById("sheetdb-form").reset();
                     input.removeAttribute('disabled');
+                });
+            });
+            form1.addEventListener("submit", e => {
+                var name = document.getElementById('name1').value;
+                var sdt = document.getElementById("sdt1").value;
+                var diachi = document.getElementById("address1").value;
+                input1.setAttribute('disabled', true);
+                e.preventDefault();
+                alert("Quý Khách Vui Lòng Kiểm Tra Lại Thông Tin!\n" + "Tên: " + name + "\nSố Điện Thoại: " + sdt + "\nĐịa Chỉ: " + diachi + "\nQuý Khách Vui Lòng Ấn 'OK' Để Xác Nhận Thông Tin!");
+                fetch(form1.action, {
+                    method: "POST",
+                    body: new FormData(document.getElementById("sheetdb-form1")),
+                }).then(
+                    response => response.json()
+
+                ).then((html) => {
+                    fbq('track', 'CompleteRegistration', {
+                        currency: "USD",
+                        value: 35.00
+                    });
+                    // you can put any JS code here
+
+                    document.getElementById("sheetdb-form1").reset();
+                    input1.removeAttribute('disabled');
                 });
             });
         </script>
@@ -11314,12 +11340,10 @@
                 },
                 "FORM374": {
                     "a": "form",
-                    "bP": "64abd91ae33dad001243cbb4",
+                    "bP": "5cef58acd062e8345a248ecb",
                     "bM": true,
                     "bK": "popup",
                     "bJ": "POPUP374",
-                    "bF": "CompleteRegistration",
-                    "bD": 1680000,
                     "by": true,
                     "bx": true
                 },
@@ -11471,12 +11495,10 @@
                 },
                 "FORM375": {
                     "a": "form",
-                    "bP": "64abd91ae33dad001243cbb4",
+                    "bP": "5cef58acd062e8345a248ecb",
                     "bM": true,
                     "bK": "popup",
                     "bJ": "POPUP374",
-                    "bF": "CompleteRegistration",
-                    "bD": 1680000,
                     "by": true,
                     "bx": true
                 },
