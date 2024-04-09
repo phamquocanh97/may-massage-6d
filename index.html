@@ -10851,9 +10851,9 @@
                     response => response.json()
 
                 ).then((html) => {
-                    fbq('track', 'CompleteRegistration', {
-                        currency: "USD",
-                        value: 35.00
+                    fbq('track', 'Purchase', {
+                        value: 45.00,
+                        currency: 'USD'
                     });
                     // you can put any JS code here
 
